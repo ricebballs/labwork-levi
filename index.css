@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #f8f6ef;
+    background-color: #fff9e3;
     font-family: Arial, sans-serif;
     text-align: center;
     color: black;
+    
 }
 .header {
     font-family: "Quicksand", sans-serif;
@@ -24,25 +25,30 @@ body {
     background-color: black;
     margin: 0 auto 20px;
 }
-.logo {
-    font-size: 100px;
+.logo1 {
+    font-family: "League Spartan", sans-serif;
+    font-size: 150px;
     font-weight: bold;
     text-transform: lowercase;
     margin-top: 300px;
+    letter-spacing: -12px;
+    color: #332219;
 }
 .dot {
-    font-size: 48px;
+    font-size: 100px;
     font-weight: bold;
 }
-.subtitle {
+.logo2 {
     font-family: "Quicksand", sans-serif;
     font-size: 20px;
     letter-spacing: 20px;
     margin-top: -10px;
     margin-left: 10px;
     font-weight: bold;
+    color: #332219;
 }
 .footer {
+    font-family: "Quicksand", sans-serif;
     position: absolute;
     bottom: 20px;
     width: 100%;
