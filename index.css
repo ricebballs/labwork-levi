@@ -4,64 +4,87 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #fff9e3;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    background-image: url('levi..png'); /* Update with the correct path */
+    background-size: cover;  /* Makes sure the image covers the whole page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repeating */
+    background-attachment: fixed; /* Keeps the image fixed when scrolling */
+}
+header {
+    padding: 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
     color: black;
+}
+
+.socials {
+    display: flex;
+    gap: 20px;
+}
+
+.socials a {
+    background-color: white;
+    padding: 1em;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    box-shadow: ;
+}
+
+.socials a svg {
+    height: 32px;
+}
+
+
+.profile-img {
+    position: absolute; /* Moves the image independently */
+    width: 600px;
+    top: 29.1%; /* Adjust as needed */
+    left: 60px;
     
 }
-.header {
-    font-family: "Quicksand", sans-serif;
-    letter-spacing: 10px;
-    padding: 20px;
-    font-size: 20px;
+
+
+/* Text Styling */
+.text-container {
+    text-align: right;
+}
+
+.text-container h1 {
+    font-size: 80px;
     font-weight: bold;
-    text-transform: lowercase;
-    letter-spacing: 2px;
+    display: inline-block;
 }
-.line {
-    width: 500px;
-    height: 2px;
-    background-color: black;
-    margin: 0 auto 20px;
-}
-.logo1 {
-    font-family: "League Spartan", sans-serif;
-    font-size: 150px;
-    font-weight: bold;
-    text-transform: lowercase;
-    margin-top: 300px;
-    letter-spacing: -12px;
-    color: #332219;
-}
+
 .dot {
-    font-size: 100px;
-    font-weight: bold;
-}
-.logo2 {
-    font-family: "Quicksand", sans-serif;
-    font-size: 20px;
-    letter-spacing: 20px;
-    margin-top: -10px;
-    margin-left: 10px;
-    font-weight: bold;
-    color: #332219;
-}
-.footer {
-    font-family: "Quicksand", sans-serif;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    font-size: 12px;
-}
-.social {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 18px;
-}
-.social a {
     color: black;
-    text-decoration: none;
-    margin: 0 5px;
 }
+
+.subtitle {
+    font-size: 24px;
+    letter-spacing: 5px;
+}
+
+.small-text {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
