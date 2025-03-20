@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 body {
     background-image: url('levi..png'); /* Update with the correct path */
@@ -17,14 +18,15 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: auto;
+    max-width: 1600px;
+    margin-left: 200px;
+    margin-top: 20px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 nav ul li a {
@@ -35,24 +37,63 @@ nav ul li a {
 .socials {
     display: flex;
     gap: 20px;
+    font-family: "League Spartan", sans-serif;
 }
 
 .socials a {
-    background-color: white;
+    background-color: #faf4d8;
     padding: 1em;
     border-radius: 50%;
     height: 64px;
     width: 64px;
     box-sizing: border-box;
     flex-shrink: 0;
-    box-shadow: ;
+    
 }
 
 .socials a svg {
     height: 32px;
 }
 
+.socials a::before{
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color:white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transform: translate(-30px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.42, 0, 0.32, 1.73);   
+}
 
+.socials a:hover{
+    background-color: var(--accent-color);
+    fill: white;
+}
+
+.socials a::after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translate(-150%, -10px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.42, 0, 0.32, 1.73);
+}
+.socials a:hover::before{
+    transform: translate(-30px, -50px) rotate(0);
+    opacity: 1;
+}
+.socials a:hover::after{
+    transform: translate(-24px, -24px) rotate(0);
+    opacity: 1;
+}
 .profile-img {
     position: absolute; /* Moves the image independently */
     width: 600px;
