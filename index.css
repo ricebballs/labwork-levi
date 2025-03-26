@@ -5,12 +5,13 @@
     
 }
 body {
-    background-image: url('levi..png'); /* Update with the correct path */
-    background-size: cover;  /* Makes sure the image covers the whole page */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents repeating */
-    background-attachment: fixed; /* Keeps the image fixed when scrolling */
+    background-image: url('levi..png'); 
+    background-size: cover;  
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
+
 header {
     padding: 20px;
 }
@@ -30,10 +31,100 @@ nav ul {
 }
 
 nav ul li a {
+    display: flex;
+    align-items: center;  /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    background-color: rgb(71, 70, 70);
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    position: relative;
 }
 
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+nav ul li a::after, nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    border-radius: 24px;
+    z-index: -1;
+    padding: 1px;
+    animation: 3s spin linear infinite;
+}
+nav ul li a::before{
+    filter: blur(1rem);
+    opacity: 0.25;
+}
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+.arch {
+    position: absolute;
+    top: 20px;
+    left: -150px;
+    width: 70px; 
+    height: 65px;
+    background-color: white;
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0; 
+    border-top-left-radius: 100px; 
+    border-top-right-radius: 100px;
+    opacity: 0; /* Initially invisible */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    animation: slideIn 1.5s ease-out forwards; 
+}
+
+.arch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+    animation: glowEffect 1.5s infinite alternate ease-in-out;
+}
+@keyframes slideIn {
+    0% {
+        left: -150px;
+        opacity: 0;
+    }
+    60% {
+        left: 10px; /* Slight overshoot for a smooth feel */
+        opacity: 1;
+    }
+    100% {
+        left: 20px;
+        filter: blur(1rem);
+        opacity: 0.25;
+    }
+}
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
 .socials {
     display: flex;
     gap: 20px;
@@ -42,7 +133,7 @@ nav ul li a {
 }
 
 .socials a {
-    background-color: #faf4d8;
+    background-color: #adadad;
     padding: 1em;
     border-radius: 50%;
     height: 64px;
@@ -99,23 +190,10 @@ nav ul li a {
     position: absolute; /* Moves the image independently */
     width: 600px;
     top: 29.1%; /* Adjust as needed */
-    left: 60px;
+    left: 67px;
     
 }
-
-
-/* Text Styling */
-.text-container {
-    background: white;
-    margin-top: 100px;
-    margin-left: auto;
-    height: 550px;
-    width: 750px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-    animation-duration: 3s;
-    animation-name: scale;
-    animation-direction: reverse;
-}
+   
 @keyframes scale {
     0%{
         background-color: #ffffff;
@@ -131,7 +209,7 @@ nav ul li a {
     }
     80%{
         background-color: #faf5df;
-        border-radius: 250px;
+        border-radius: 230px;
     }
     100%{
         transform: scale(1.5);
@@ -140,24 +218,46 @@ nav ul li a {
     }
 }
 
+.text-container {
+    display: inline-block;
+}
 .text-container h1 {
+    margin-top: 150px;
+    margin-left: 180%;
+    width: 100%;
     font-size: 80px;
     font-weight: bold;
     display: inline-block;
+    font-family: monospace;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation:
+        typing 2s,
+        cursor .4s step-end infinite alternate;
 }
 
-.dot {
-    color: black;
+@keyframes cursor {
+    50% { border-color: transparent}
 }
 
-.subtitle {
-    font-size: 24px;
-    letter-spacing: 5px;
+@keyframes typing {
+    from { width: 0; }
 }
 
-.small-text {
-    font-size: 12px;
-    margin-top: 10px;
+.text-container p {
+    margin-top: 100px;
+    margin-left: 180%;
+    width: 100%;
+    font-size: 15px ;
+    font-weight: bold;
+    color: white;
+    font-family: monospace;
+    
 }
+
+
+
+
 
 
