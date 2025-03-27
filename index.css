@@ -91,6 +91,13 @@ nav ul li a::before{
     animation: slideIn 1.5s ease-out forwards; 
 }
 
+.arch:hover {
+    background-color: rgb(255, 255, 255); /* Light Blue */
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
+    transform: scale(1.05); /* Slightly enlarges */
+}
+
+
 .arch::before {
     content: "";
     position: absolute;

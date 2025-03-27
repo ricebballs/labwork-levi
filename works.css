@@ -1,0 +1,318 @@
+
+header {
+    padding: 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a {
+    display: flex;
+    align-items: center;  /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    background-color: rgb(71, 70, 70);
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+nav ul li a::after, nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    border-radius: 24px;
+    z-index: -1;
+    padding: 1px;
+    animation: 3s spin linear infinite;
+}
+nav ul li a::before{
+    filter: blur(1rem);
+    opacity: 0.25;
+}
+@keyframes spin {
+    from{
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+.arch {
+    position: absolute;
+    top: 20px;
+    left: -150px;
+    width: 70px; 
+    height: 65px;
+    background-color: white;
+    border-bottom-left-radius: 0; 
+    border-bottom-right-radius: 0; 
+    border-top-left-radius: 100px; 
+    border-top-right-radius: 100px;
+    
+    z-index: 10; /* Ensure it's above the glow */
+
+    animation: slideIn 1.5s ease-out forwards; 
+}
+
+.arch:hover {
+    background-color: rgb(255, 255, 255); /* Light Blue */
+    box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
+    transform: scale(1.05); /* Slightly enlarges */
+}
+
+.arch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: -1; /* Places glow behind the shape */
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9); /* Edge glow */
+    animation: glowEffect 1.5s infinite alternate ease-in-out;
+}
+@keyframes slideIn {
+    0% {
+        left: -150px;
+        opacity: 0;
+    }
+    60% {
+        left: 10px; /* Slight overshoot for a smooth feel */
+        opacity: 1;
+    }
+    100% {
+        left: 20px;
+        
+    }
+}
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+}
+.socials {
+    display: flex;
+    gap: 20px;
+    font-family: "League Spartan", sans-serif;
+    
+}
+
+.socials a {
+    background-color: #adadad;
+    padding: 1em;
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    
+}
+
+.socials a svg {
+    height: 32px;
+}
+
+.socials a::before{
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color:white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transform: translate(-30px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.42, 0, 0.32, 1.73);   
+}
+
+.socials a:hover{
+    background-color: var(--accent-color);
+    fill: white;
+}
+
+.socials a::after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translate(-150%, -10px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(0.42, 0, 0.32, 1.73);
+}
+.socials a:hover::before{
+    transform: translate(-30px, -50px) rotate(0);
+    opacity: 1;
+}
+.socials a:hover::after{
+    transform: translate(-24px, -24px) rotate(0);
+    opacity: 1;
+}
+
+.audio-controls {  
+    position: fixed;
+    bottom: 20px;  /* Moves it up/down */
+    left: 20px;  /* Moves it left/right */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Mute Button */
+#mute-btn {
+    background: #222020;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+
+#mute-btn:hover {
+    background: #b1b1b1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "League Spartan", sans-serif;
+}
+
+body {
+    background-color: #121212;
+}
+
+.wrapper {
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.card {
+    width: 150px;
+    height: 500px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(255, 255, 255, 0.8);
+}
+
+.card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card > .row > .icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    font-family: "League Spartan", sans-serif;
+}
+
+.description p {
+    color: #ffffff;
+    padding-top: 5px;
+}
+
+.description h4 {
+    text-transform: uppercase;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.card[for="c1"] {
+    background-image: url('./message.jpg');
+}
+.card[for="c2"] {
+    background-image: url('./worship.png');
+}
+.card[for="c3"] {
+    background-image: url('./music.jpg');
+}
+.card[for="c4"] {
+    background-image: url('./img4.jpeg');
+}
