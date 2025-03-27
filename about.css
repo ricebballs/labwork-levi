@@ -193,3 +193,15 @@ nav ul li a::before{
     transform: translate(-24px, -24px) rotate(0);
     opacity: 1;
 }
+
+.element {
+    height: 200px;
+    width: 200px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-weight: 700;
+    font-size: 1.35;
+}

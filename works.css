@@ -1,4 +1,7 @@
-
+body {
+    background-color: #121212;
+    overflow: hidden;
+}
 header {
     padding: 20px;
 }
@@ -215,9 +218,7 @@ nav ul li a::before{
     font-family: "League Spartan", sans-serif;
 }
 
-body {
-    background-color: #121212;
-}
+
 
 .wrapper {
     width: 100%;
@@ -315,4 +316,41 @@ input:checked + label .description {
 }
 .card[for="c4"] {
     background-image: url('./mult.png');
+}
+
+@keyframes slideInFromLeft {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 100%;
+    }
+}
+
+.sliding-line {
+    position: absolute;
+    width: 500px; /* Adjust as needed */
+    height: 3px;
+    background: rgb(255, 255, 255);
+}
+
+.line-left {
+    left: -100%;
+    top: 20%;
+    animation: slideInFromLeft 15s linear infinite;
+}
+
+.line-right {
+    right: -100%;
+    top: 88%;
+    animation: slideInFromRight 15s linear infinite;
 }
