@@ -32,8 +32,8 @@ nav ul {
 
 nav ul li a {
     display: flex;
-    align-items: center;  /* Centers text vertically */
-    justify-content: center; /* Centers text horizontally */
+    align-items: center;  
+    justify-content: center; 
     text-decoration: none;
     color: rgb(255, 255, 255);
     border-radius: 24px;
@@ -86,15 +86,15 @@ nav ul li a::before{
     border-top-left-radius: 100px; 
     border-top-right-radius: 100px;
     
-    z-index: 10; /* Ensure it's above the glow */
+    z-index: 10; 
 
     animation: slideIn 1.5s ease-out forwards; 
 }
 
 .arch:hover {
-    background-color: rgb(255, 255, 255); /* Light Blue */
+    background-color: rgb(255, 255, 255); 
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
-    transform: scale(1.05); /* Slightly enlarges */
+    transform: scale(1.05); 
 }
 
 
@@ -106,8 +106,8 @@ nav ul li a::before{
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    z-index: -1; /* Places glow behind the shape */
-    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9); /* Edge glow */
+    z-index: -1; 
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9); 
     animation: glowEffect 1.5s infinite alternate ease-in-out;
 }
 @keyframes slideIn {
@@ -116,7 +116,7 @@ nav ul li a::before{
         opacity: 0;
     }
     60% {
-        left: 10px; /* Slight overshoot for a smooth feel */
+        left: 10px; 
         opacity: 1;
     }
     100% {
@@ -195,13 +195,90 @@ nav ul li a::before{
 }
 
 .element {
-    height: 200px;
-    width: 200px;
-    background: white;
+    color: white;
+    
+    top: 100%;
+    left: 45%;
+    transform: translate(10%, 10%);
+    height: 600px;
+    width: 700px;
+    background: rgb(27, 27, 27); 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Poppins;
+    font-family: "League Spartan", sans-serif;
     font-weight: 700;
-    font-size: 1.35;
+    font-size: 1.35rem;
+    border-radius: 30px;
+    position: relative;
+    flex-direction: column;
+    z-index: 2;
+}
+
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.element::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    border-radius: inherit;
+    z-index: -1;
+    animation: spin 3s linear infinite;
+    padding: 5px;
+    pointer-events: none;
+    filter: blur(20px);
+}
+
+
+.element::before {
+    content: '';
+    position: absolute;
+    inset: 2px; 
+    background: rgb(27, 27, 27); /* Same as .element background */
+    border-radius: inherit;
+    z-index: 0; /* Moves behind text */
+    pointer-events: none;
+    
+}
+
+.element p {
+    position: relative;
+    z-index: 2; 
+    text-align: center;
+    font-size: 40px;
+    justify-content: center;
+    padding: 40px; 
+}
+.element h1{
+    position: relative;
+    z-index: 2;
+    font-size: 50px; 
+    text-align: center;
+    margin-bottom: 20px; 
+    ;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+.abouts {
+    position: absolute; 
+    width: 750px;
+    top: 3%; 
+    left: 67px;
+    rotate: 20deg;
 }

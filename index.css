@@ -32,8 +32,8 @@ nav ul {
 
 nav ul li a {
     display: flex;
-    align-items: center;  /* Centers text vertically */
-    justify-content: center; /* Centers text horizontally */
+    align-items: center;  
+    justify-content: center; 
     text-decoration: none;
     color: rgb(255, 255, 255);
     border-radius: 24px;
@@ -86,15 +86,15 @@ nav ul li a::before{
     border-top-left-radius: 100px; 
     border-top-right-radius: 100px;
     
-    z-index: 10; /* Ensure it's above the glow */
+    z-index: 10; 
 
     animation: slideIn 1.5s ease-out forwards; 
 }
 
 .arch:hover {
-    background-color: rgb(255, 255, 255); /* Light Blue */
+    background-color: rgb(255, 255, 255); 
     box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
-    transform: scale(1.05); /* Slightly enlarges */
+    transform: scale(1.05); 
 }
 
 
@@ -106,8 +106,8 @@ nav ul li a::before{
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    z-index: -1; /* Places glow behind the shape */
-    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9); /* Edge glow */
+    z-index: -1; 
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9); 
     animation: glowEffect 1.5s infinite alternate ease-in-out;
 }
 @keyframes slideIn {
@@ -116,7 +116,7 @@ nav ul li a::before{
         opacity: 0;
     }
     60% {
-        left: 10px; /* Slight overshoot for a smooth feel */
+        left: 10px; 
         opacity: 1;
     }
     100% {
@@ -194,9 +194,9 @@ nav ul li a::before{
     opacity: 1;
 }
 .profile-img {
-    position: absolute; /* Moves the image independently */
+    position: absolute; 
     width: 600px;
-    top: 29.1%; /* Adjust as needed */
+    top: 29.1%; 
     left: 67px;
     
 }
